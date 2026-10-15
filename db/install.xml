@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<XMLDB PATH="mod/istudy/db" VERSION="20190521" COMMENT="XMLDB file for Moodle mod/istudy"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:noNamespaceSchemaLocation="../../../lib/xmldb/xmldb.xsd"
+>
+  <TABLES>
+    <TABLE NAME="istudy" COMMENT="Default comment for istudy, please edit me">
+      <FIELDS>
+        <FIELD NAME="id" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="true"/>
+        <FIELD NAME="course" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="false" COMMENT="Course istudy activity belongs to"/>
+        <FIELD NAME="name" TYPE="char" LENGTH="255" NOTNULL="true" SEQUENCE="false" COMMENT="name field for moodle instances"/>
+        <FIELD NAME="intro" TYPE="text" NOTNULL="true" SEQUENCE="false" COMMENT="General introduction of the istudy activity"/>
+        <FIELD NAME="introformat" TYPE="int" LENGTH="4" NOTNULL="true" DEFAULT="0" SEQUENCE="false" COMMENT="Format of the intro field (MOODLE, HTML, MARKDOWN...)"/>
+        <FIELD NAME="timecreated" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="false"/>
+        <FIELD NAME="timemodified" TYPE="int" LENGTH="10" NOTNULL="true" DEFAULT="0" SEQUENCE="false"/>
+        <FIELD NAME="grade" TYPE="int" LENGTH="10" NOTNULL="true" DEFAULT="100" SEQUENCE="false" COMMENT="The maximum grade. Can be negative to indicate the use of a scale."/>
+      </FIELDS>
+      <KEYS>
+        <KEY NAME="primary" TYPE="primary" FIELDS="id"/>
+      </KEYS>
+      <INDEXES>
+        <INDEX NAME="course" UNIQUE="false" FIELDS="course"/>
+      </INDEXES>
+    </TABLE>
+    <TABLE NAME="istudy_monthatten" COMMENT="Attendance credit and coursework description for an independent study school">
+      <FIELDS>
+		    <FIELD NAME="id" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="true"/>
+        <FIELD NAME="course" TYPE="text" NOTNULL="false" SEQUENCE="false" COMMENT="Course istudy activity belongs to"/>
+        <FIELD NAME="timecreated" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="false"/>
+        <FIELD NAME="timemodified" TYPE="int" LENGTH="10" NOTNULL="true" DEFAULT="0" SEQUENCE="false"/>
+        <FIELD NAME="student_id" TYPE="int" LENGTH="10" NOTNULL="false" SEQUENCE="false" COMMENT="Student ID"/>
+        <FIELD NAME="teacher_id" TYPE="int" LENGTH="10" NOTNULL="false" SEQUENCE="false"/>
+        <FIELD NAME="month" TYPE="int" LENGTH="2" NOTNULL="false" SEQUENCE="false" COMMENT="Months 1-11"/>
+        <FIELD NAME="resources" TYPE="char" LENGTH="255" NOTNULL="false" SEQUENCE="false"/>
+        <FIELD NAME="creditsweek1" TYPE="number" LENGTH="5" NOTNULL="false" SEQUENCE="false" DECIMALS="2" COMMENT="Credits for week 1"/>
+        <FIELD NAME="assignmentweek1" TYPE="char" LENGTH="255" NOTNULL="false" SEQUENCE="false" COMMENT="Assignment details for week 1"/>
+        <FIELD NAME="creditsweek2" TYPE="number" LENGTH="5" NOTNULL="false" SEQUENCE="false" DECIMALS="2" COMMENT="Credits for week 2"/>
+        <FIELD NAME="assignmentweek2" TYPE="char" LENGTH="255" NOTNULL="false" SEQUENCE="false" COMMENT="Assignment details for week 2"/>
+        <FIELD NAME="creditsweek3" TYPE="number" LENGTH="5" NOTNULL="false" SEQUENCE="false" DECIMALS="2" COMMENT="Credits for week 3"/>
+        <FIELD NAME="assignmentweek3" TYPE="char" LENGTH="255" NOTNULL="false" SEQUENCE="false" COMMENT="Assignment for week 3"/>
+        <FIELD NAME="creditsweek4" TYPE="number" LENGTH="5" NOTNULL="false" SEQUENCE="false" DECIMALS="2" COMMENT="Credits for week 4"/>
+        <FIELD NAME="assignmentweek4" TYPE="char" LENGTH="255" NOTNULL="false" SEQUENCE="false" COMMENT="Assignment for week 4"/>
+      </FIELDS>
+      <KEYS>
+        <KEY NAME="primary" TYPE="primary" FIELDS="id"/>
+      </KEYS>
+    </TABLE>
+    <TABLE NAME="istudy_dailyattend_enter" COMMENT="Enter Daily Attendance">
+      <FIELDS>
+        <FIELD NAME="id" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="true"/>
+        <FIELD NAME="timemodified" TYPE="int" LENGTH="10" NOTNULL="true" DEFAULT="0" SEQUENCE="false"/>
+        <FIELD NAME="course"  TYPE="text" NOTNULL="false" SEQUENCE="false" COMMENT="Course number"/>
+        <FIELD NAME="attendance_date" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="false"/>
+        <FIELD NAME="day_of_week" TYPE="int" LENGTH="1" NOTNULL="false" SEQUENCE="false" COMMENT="Monday=1 Tuesday=2 Wedday=3 Thurday=4 Friday=5"/>
+        <FIELD NAME="session" TYPE="int" LENGTH="10" NOTNULL="true" DEFAULT="0" SEQUENCE="false"/>
+        <FIELD NAME="student_id" TYPE="int" LENGTH="10" NOTNULL="false" SEQUENCE="false" COMMENT="Student ID"/>
+        <FIELD NAME="teacher_id" TYPE="int" LENGTH="10" NOTNULL="false" SEQUENCE="false"/>
+        <FIELD NAME="attendance_status" TYPE="int" LENGTH="1" NOTNULL="false" SEQUENCE="false" COMMENT="1=absent 2=present and on campus 3=distance learner 4 = tardy"/>
+        <FIELD NAME="notes" TYPE="char" LENGTH="128" NOTNULL="false" SEQUENCE="false" COMMENT="Info about absence"/>
+      </FIELDS>
+      <KEYS>
+        <KEY NAME="primary" TYPE="primary" FIELDS="id"/>
+      </KEYS>
+    </TABLE>
+    <TABLE NAME="istudycoursenum_sections" COMMENT="Aeries Section Numbers">
+      <FIELDS>
+        <FIELD NAME="id" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="true"/>
+        <FIELD NAME="timemodified" TYPE="int" LENGTH="10" NOTNULL="true" DEFAULT="0" SEQUENCE="false"/>
+        <FIELD NAME="teacher_id" TYPE="int" LENGTH="10" NOTNULL="false" SEQUENCE="false"/>
+        <FIELD NAME="day_of_week" TYPE="int" LENGTH="1" NOTNULL="false" SEQUENCE="false" COMMENT="Monday=1 Tuesday=2 Wedday=3 Thurday=4 Friday=5"/>
+        <FIELD NAME="session" TYPE="int" LENGTH="10" NOTNULL="true" DEFAULT="0" SEQUENCE="false"/>
+        <FIELD NAME="section_number"  TYPE="text" NOTNULL="false" SEQUENCE="false" COMMENT="Aeries section number"/>
+      </FIELDS>
+      <KEYS>
+        <KEY NAME="primary" TYPE="primary" FIELDS="id"/>
+      </KEYS>
+    </TABLE>
+    <TABLE NAME="istudycourse_hours" COMMENT="Weekly Hourly Values for Courses">
+      <FIELDS>
+        <FIELD NAME="id" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="true"/>
+        <FIELD NAME="section" TYPE="text" NOTNULL="true" SEQUENCE="false" COMMENT="The sectioin or course number"/>
+        <FIELD NAME="subject" TYPE="text" NOTNULL="true" SEQUENCE="false" COMMENT="The name of the course"/>
+        <FIELD NAME="hour_value" TYPE="text" NOTNULL="true" SEQUENCE="false" COMMENT="The weekly hour value of each course"/>
+      </FIELDS>
+      <KEYS>
+        <KEY NAME="primary" TYPE="primary" FIELDS="id"/>
+      </KEYS>
+    </TABLE>
+    <TABLE NAME="istudycourses_teachers" COMMENT="Courses + teachers combined for drop-down lists">
+      <FIELDS>
+        <FIELD NAME="id" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="true"/>
+        <FIELD NAME="section" TYPE="text" NOTNULL="true" SEQUENCE="false" COMMENT="The course number"/>
+        <FIELD NAME="subject" TYPE="text" NOTNULL="true" SEQUENCE="false" COMMENT="The name of the course"/>
+        <FIELD NAME="teacherid" TYPE="int" LENGTH="10" NOTNULL="true" DEFAULT="0" SEQUENCE="false" COMMENT="The teacher moodle id"/>
+        <FIELD NAME="teacher_name" TYPE="text" NOTNULL="true" SEQUENCE="false" COMMENT="The teacher full name: Ramirez-Jesus"/>
+        <FIELD NAME="active" TYPE="int" LENGTH="1" NOTNULL="true" SEQUENCE="false" COMMENT="True or false - the teacher teaches this course"/>
+      </FIELDS>
+      <KEYS>
+        <KEY NAME="primary" TYPE="primary" FIELDS="id"/>
+      </KEYS>
+    </TABLE>
+    <TABLE NAME="istudyteachers" COMMENT="A list of all of the teachers">
+      <FIELDS>
+        <FIELD NAME="id" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="true"/>
+        <FIELD NAME="teacherid" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="false" COMMENT="The teacher Moodle id"/>
+        <FIELD NAME="lastname" TYPE="text" NOTNULL="true" SEQUENCE="false" COMMENT="The teacher last name"/>
+        <FIELD NAME="firstname" TYPE="text" NOTNULL="true" SEQUENCE="false" COMMENT="The teacher first name"/>
+        <FIELD NAME="email" TYPE="text" NOTNULL="true" SEQUENCE="false" COMMENT="The teacher email"/>
+        <FIELD NAME="room" TYPE="text" NOTNULL="true" SEQUENCE="false" COMMENT="The teacher room number"/>
+        <FIELD NAME="extension" TYPE="text" NOTNULL="true" SEQUENCE="false" COMMENT="The teacher phone extension."/>
+      </FIELDS>
+      <KEYS>
+        <KEY NAME="primary" TYPE="primary" FIELDS="id"/>
+      </KEYS>
+    </TABLE>
+    <TABLE NAME="istudymenu_fall" COMMENT="Fall drop down course menus">
+      <FIELDS>
+        <FIELD NAME="id" TYPE="int" LENGTH="18" NOTNULL="true" SEQUENCE="true"/>
+        <FIELD NAME="courseid" TYPE="text" NOTNULL="false" SEQUENCE="false"/>
+        <FIELD NAME="teacherid" TYPE="int" LENGTH="18" NOTNULL="false" SEQUENCE="false"/>
+        <FIELD NAME="dayofweek" TYPE="int" LENGTH="2" NOTNULL="false" SEQUENCE="false"/>
+        <FIELD NAME="period" TYPE="int" LENGTH="2" NOTNULL="false" SEQUENCE="false"/>
+        <FIELD NAME="active" TYPE="binary" NOTNULL="false" SEQUENCE="false"/>
+        <FIELD NAME="course_name" TYPE="text" NOTNULL="false" SEQUENCE="false"/>
+      </FIELDS>
+      <KEYS>
+        <KEY NAME="primary" TYPE="primary" FIELDS="id"/>
+      </KEYS>
+    </TABLE>
+    <TABLE NAME="istudymenu_spring" COMMENT="Spring drop down course menus">
+      <FIELDS>
+        <FIELD NAME="id" TYPE="int" LENGTH="18" NOTNULL="true" SEQUENCE="true"/>
+        <FIELD NAME="courseid" TYPE="text" NOTNULL="false" SEQUENCE="false"/>
+        <FIELD NAME="teacherid" TYPE="int" LENGTH="18" NOTNULL="false" SEQUENCE="false"/>
+        <FIELD NAME="dayofweek" TYPE="int" LENGTH="2" NOTNULL="false" SEQUENCE="false"/>
+        <FIELD NAME="period" TYPE="int" LENGTH="2" NOTNULL="false" SEQUENCE="false"/>
+        <FIELD NAME="active" TYPE="binary" NOTNULL="false" SEQUENCE="false"/>
+        <FIELD NAME="course_name" TYPE="text" NOTNULL="false" SEQUENCE="false"/>
+      </FIELDS>
+      <KEYS>
+        <KEY NAME="primary" TYPE="primary" FIELDS="id"/>
+      </KEYS>
+    </TABLE>
+    <TABLE NAME="istudymenu_summer" COMMENT="Summer drop down course menus">
+      <FIELDS>
+        <FIELD NAME="id" TYPE="int" LENGTH="18" NOTNULL="true" SEQUENCE="true"/>
+        <FIELD NAME="courseid" TYPE="text" NOTNULL="false" SEQUENCE="false"/>
+        <FIELD NAME="teacherid" TYPE="int" LENGTH="18" NOTNULL="false" SEQUENCE="false"/>
+        <FIELD NAME="dayofweek" TYPE="int" LENGTH="2" NOTNULL="false" SEQUENCE="false"/>
+        <FIELD NAME="period" TYPE="int" LENGTH="2" NOTNULL="false" SEQUENCE="false"/>
+        <FIELD NAME="active" TYPE="binary" NOTNULL="false" SEQUENCE="false"/>
+        <FIELD NAME="course_name" TYPE="text" NOTNULL="false" SEQUENCE="false"/>
+      </FIELDS>
+      <KEYS>
+        <KEY NAME="primary" TYPE="primary" FIELDS="id"/>
+      </KEYS>
+    </TABLE>
+  </TABLES>
+</XMLDB>

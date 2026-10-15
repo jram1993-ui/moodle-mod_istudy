@@ -1,0 +1,141 @@
+body {font-family: Arial;}
+
+/* Table Settings */
+table {
+	width: auto;
+}
+table.table1 {
+	width: 1800px;
+	margin-left: 0px;
+	table-layout: fixed;
+	border: 1px solid #999;
+}
+td {
+	padding: 1px 1px 1px 1px;
+	vertical-align: middle;
+	border-left: 1px solid #999;
+	border-right: 1px solid #999;
+	border-bottom: 1px solid #999;
+	border-top: 1px solid #999;
+}
+th {
+	letter-spacing: 0.lem;
+	font-size: 90%;
+	padding: 5px 5px 5px 5px;
+	border-bottom: 1px solid #999;
+	border-top: 1px solid #999;
+	text-align: center;
+	border-left: 1px solid #999;
+	border-right: 1px solid #999;
+	background-color: #e1e1e1;
+}
+
+tr.even {
+	background-color: #efefef;
+	border-bottom: 1px solid #999;
+}
+tr:hover {
+	background-color: #c3e6e5;
+}
+h1 {
+	text-align: left;
+}
+h2 {
+	text-align: left;
+}
+.money {
+	text-align: left;
+}
+.noborder_bottom {
+	border-bottom: 1px solid #FFFF;
+}
+.noborder_bottomleft {
+	border-bottom: 1px solid #FFFF;
+	border-left: 1px solid #FFFF;
+}
+.mycell0 {
+	border-bottom: 1px solid #999;
+	vertical-align: top;
+	padding: 10px 3px 0px 3px;
+	margin: 0px 0px 0px 0px;
+}
+.mycell1 {
+	border-bottom: 1px solid #999;
+	background-color: #f1e5e5;
+	padding: 10px 0px 0px 0px;
+	margin: 0px 0px 0px 0px;
+}
+.mycell2 {
+	border-bottom: 1px solid #999;
+	background-color: #f3f7e1;
+	padding: 10px 0px 0px 0px;
+	margin: 0px 0px 0px 0px;
+}
+.mycell3 {
+	border-bottom: 1px solid #999;
+	background-color: #d8f0d9;
+	padding: 10px 0px 0px 0px;
+	margin: 0px 0px 0px 0px;
+}
+.mycell4 {
+	border-bottom: 1px solid #999;
+	background-color: #daddf5;
+	padding: 10px 0px 0px 0px;
+	margin: 0px 0px 0px 0px;
+}
+.mycell5 {
+	border-bottom: 1px solid #999;
+	background-color: #ffddf9;
+	padding: 10px 0px 0px 0px;
+	margin: 0px 0px 0px 0px;
+}
+.nonecell {
+	border-bottom: 1px solid #999;
+	background-color: #e1e1e1;
+}
+
+/* Radio Button
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+.radiobuttons-black {
+  font-size: 80%;
+  padding: 0px 5px;
+}
+.radiobuttons-black:hover {
+	background-color: #efefef;
+}
+.radiobuttons-blue {
+  font-size: 80%;
+  padding: 0px 5px;
+}
+.radiobuttons-blue:hover {
+	background-color: #efefef;
+}
+
+/* Formating for Moodle forms */
+.col-md-3 {
+    float: left;
+    width: 0%;
+	/* max-width: ; */
+}
+.col-md-9 {
+	flex-grow: 0;
+	flex-shrink: 0;
+	flex-basis: 100%;
+	max-width: 100%;
+}
+.d-flex {
+	flex-grow: 0;
+	flex-shrink: 0;
+	flex-basis: 100%;
+	max-width: 100%;
+}
+
+/* Static Text
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+.studentname {
+  font-size: 110%;
+  padding: 0px 0px;
+}
+.row {
+    margin-left: -10px;
+}

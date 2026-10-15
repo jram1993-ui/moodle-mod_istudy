@@ -1,0 +1,121 @@
+body {font-family: Arial;}
+
+/* Table Settings */
+table {
+	width: auto;
+}
+td {
+	padding: 1px 1px 1px 1px;
+	vertical-align: middle;
+	border-left: 1px solid #999;
+	border-right: 1px solid #999;
+	border-bottom: 1px solid #999;
+	border-top: 1px solid #999;
+}
+th {
+	letter-spacing: 0.lem;
+	font-size: 90%;
+	padding: 5px 5px 5px 5px;
+	border-bottom: 1px solid #999;
+	border-top: 1px solid #999;
+	text-align: center;
+	border-left: 1px solid #999;
+	border-right: 1px solid #999;
+	background-color: #efefef;
+}
+tr.even {
+	background-color: #efefef;
+	border-bottom: 1px solid #999;
+}
+tr:hover {
+	background-color: #c3e6e5;
+}
+h3 {
+	padding: 10px 5px 5px 5px;
+	text-align: center;
+	font-size: 120%;
+}
+.money {
+	text-align: left;
+}
+.mycell0 {
+	border-bottom: 1px solid #999;
+	vertical-align: top;
+}
+.mycell1 {
+	border-bottom: 1px solid #999;
+	background-color: #f1e5e5;
+	vertical-align: top;
+}
+.mycell2 {
+	border-bottom: 1px solid #999;
+	background-color: #f3f7e1;
+	vertical-align: top;
+}
+.mycell3 {
+	border-bottom: 1px solid #999;
+	background-color: #d8f0d9;
+	vertical-align: top;
+}
+.mycell4 {
+	border-bottom: 1px solid #999;
+	background-color: #daddf5;
+	vertical-align: top;
+}
+.mycell5 {
+	border-bottom: 1px solid #999;
+	background-color: #ffddf9;
+	vertical-align: top;
+}
+.nonecell {
+	border-bottom: 1px solid #999;
+	background-color: #e1e1e1;
+}
+
+/* Radio Button
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+.radiobuttons-black {
+  font-size: 80%;
+  padding: 0px 5px;
+}
+.radiobuttons-black:hover {
+	background-color: #efefef;
+}
+.radiobuttons-blue {
+  font-size: 80%;
+  padding: 0px 5px;
+}
+.radiobuttons-blue:hover {
+	background-color: #efefef;
+}
+.mycheckbox {
+	padding-right: 10px;
+}
+/* Formating for Moodle forms */
+.col-md-3 {
+    float: left;
+    width: 0%;
+	/* max-width: ; */
+}
+.col-md-9 {
+	flex-grow: 0;
+	flex-shrink: 0;
+	flex-basis: 100%;
+	max-width: 100%;
+}
+.d-flex {
+	flex-grow: 0;
+	flex-shrink: 0;
+	flex-basis: 100%;
+	max-width: 100%;
+}
+
+/* Static Text
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+.studentname {
+  font-size: 110%;
+  padding: 0px 0px;
+}
+.row {
+    margin-left: -10px;
+}
